@@ -7,6 +7,10 @@ Desktop.ini
 
 # Node
 node_modules/
+**/node_modules/
+**/dist/
+**/.vite/
+**/coverage/
 
 # Python
 __pycache__/
@@ -14,3 +18,8 @@ __pycache__/
 
 # Editor
 .vscode/
+
+# Windows reserved/noise
+**/CON
+**/Desktop.ini
+**/Thumbs.db
