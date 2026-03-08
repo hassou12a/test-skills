@@ -1,0 +1,9 @@
+Skill: Reasoning Engine
+
+Purpose:
+Analyze problems and generate solutions.
+
+Workflow:
+1 Analyze constraints
+2 Generate multiple solutions
+3 Select best solution using probability scoring

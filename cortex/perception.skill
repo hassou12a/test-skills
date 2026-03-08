@@ -1,0 +1,10 @@
+Skill: Perception Cortex
+
+Purpose:
+Understand user intent and context.
+
+Workflow:
+1 Receive input
+2 Extract keywords
+3 Detect intention
+4 Send data to reasoning layer

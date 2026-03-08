@@ -1,0 +1,10 @@
+Skill: Empire Core Controller
+
+Purpose:
+Control and coordinate all empire components.
+
+Functions:
+- Receive commands
+- Distribute tasks to agents
+- Monitor system health
+- Control evolution process
