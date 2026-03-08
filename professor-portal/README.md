@@ -41,11 +41,14 @@ npm run preview
 
 ## صور الواجهة
 
-> يمكن لاحقًا استبدال الصور التالية بلقطات شاشة فعلية من الصفحات الرئيسية.
+### الصفحة الرئيسية
+![Home](./docs/screenshots/home.png)
 
-![Avatar](./public/avatar.png)
-![Algeria Flag](./public/algeria-flag.svg)
-![Book Cover Sample](./public/book-covers/cover-1.svg)
+### قسم الموارد
+![Resources](./docs/screenshots/resources.png)
+
+### صفحة التخصصات
+![Domains](./docs/screenshots/domains.png)
 
 ## ملاحظات
 
