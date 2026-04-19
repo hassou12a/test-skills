@@ -1,4 +1,4 @@
-﻿/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'professor-portal-content-v2';
@@ -94,7 +94,7 @@ const defaultContent = {
         fr: 'Parcours progressif des fondamentaux reseaux a la cybersecurite.',
       },
       resources: {
-        lessons: [
+lessons: [
           { id: 'net-l-1', title: 'Cisco Networking Academy', description: 'Structured networking and cybersecurity tracks.', type: 'link', url: 'https://www.netacad.com/courses/networking' },
           { id: 'net-l-2', title: 'Fortinet Training Institute', description: 'Free security awareness and NSE training paths.', type: 'link', url: 'https://training.fortinet.com/' },
           { id: 'net-l-3', title: 'Juniper Open Learning', description: 'Routing, switching, and network security courses.', type: 'link', url: 'https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=11478' },
@@ -103,8 +103,20 @@ const defaultContent = {
           { id: 'net-l-6', title: 'Cybrary Catalog', description: 'Blue team and red team oriented learning paths.', type: 'link', url: 'https://www.cybrary.it/catalog' },
           { id: 'net-l-7', title: 'Palo Alto Beacon', description: 'Network security and SOC-oriented free lessons.', type: 'link', url: 'https://beacon.paloaltonetworks.com/' },
           { id: 'net-l-8', title: 'Cisco Skills for All', description: 'Professional-level networking and security learning paths.', type: 'link', url: 'https://skillsforall.com/' },
+          { id: 'net-l-ar-1', title: 'مقدمة للأمن السيبراني - Cybrary', description: 'مقدمة شاملة مجانية للأمن السيبراني من Cybrary.', type: 'link', url: 'https://www.cybrary.it/course/introduction-to-it-and-cybersecurity' },
+          { id: 'net-l-ar-2', title: 'مسار Pre-Security - TryHackMe', description: 'مسار تفاعلي للمبتدئين في الأمن.', type: 'link', url: 'https://tryhackme.com/path/outline/presecurity' },
+          { id: 'net-l-ar-3', title: 'أساسيات الشبكات - Professor Messer', description: 'كورس مجاني شامل لأساسيات الشبكات.', type: 'link', url: 'https://www.professormesser.com/network-plus/n10-008/n10-008-video/n10-008-training-course' },
+          { id: 'net-l-ar-4', title: 'البرمجة بلغة بايثون - Python Official', description: 'التوثيق الرسمي ل-python 3.', type: 'link', url: 'https://docs.python.org/3/tutorial' },
+          { id: 'net-l-ar-5', title: 'Learn Python - تفاعلي', description: 'تعلم بايثون بتمارين مباشرة في المتصفح.', type: 'link', url: 'https://www.learnpython.org' },
+          { id: 'net-l-ar-6', title: 'أساسيات Linux - OverTheWire Bandit', description: 'تعلم Linux عبر تحديات تفاعلية.', type: 'link', url: 'https://overthewire.org/wargames/bandit' },
+          { id: 'net-l-ar-7', title: 'تعلم SQL - SQLZoo', description: 'تعلم SQL بتمارين تفاعلية مجانية.', type: 'link', url: 'https://sqlzoo.net' },
+          { id: 'net-l-ar-8', title: 'أمن تطبيقات الويب - PortSwigger', description: 'أفضل منصة مجانية لأمن تطبيقات الويب.', type: 'link', url: 'https://portswigger.net/web-security' },
+          { id: 'net-l-ar-9', title: 'SOC Level 1 - TryHackMe', description: 'مسار تدريبي كامل لمحلل SOC.', type: 'link', url: 'https://tryhackme.com/path/outline/soclevel1' },
+          { id: 'net-l-ar-10', title: 'أساسيات Linux الأمنية - TryHackMe', description: 'وحدة تفاعلية لأساسيات Linux.', type: 'link', url: 'https://tryhackme.com/module/linux-fundamentals' },
+          { id: 'net-l-ar-11', title: 'أمن الشبكات اللاسلكية - TryHackMe', description: 'وحدة تفاعلية لأمن الشبكات اللاسلكية.', type: 'link', url: 'https://tryhackme.com/module/wifi-hacking-101' },
+          { id: 'net-l-ar-12', title: 'مقدمة لـ NIST Framework', description: 'الإطار الرسمي للأمن السيبراني.', type: 'link', url: 'https://www.nist.gov/cyberframework' },
         ],
-        books: [
+books: [
           { id: 'net-b-1', title: 'The TCP/IP Guide', description: 'Comprehensive reference on TCP/IP protocols.', type: 'ebook', url: 'http://www.tcpipguide.com/free/' },
           { id: 'net-b-2', title: 'Nmap Network Scanning', description: 'Official Nmap book for reconnaissance and scanning.', type: 'ebook', url: 'https://nmap.org/book/' },
           { id: 'net-b-3', title: 'OWASP Web Security Testing Guide', description: 'High-quality security testing methodology guide.', type: 'ebook', url: 'https://owasp.org/www-project-web-security-testing-guide/' },
@@ -113,16 +125,32 @@ const defaultContent = {
           { id: 'net-b-6', title: 'MITRE ATT&CK Knowledge Base', description: 'Threat behavior matrix and defensive mapping.', type: 'ebook', url: 'https://attack.mitre.org/' },
           { id: 'net-b-7', title: 'OWASP Top 10', description: 'Critical web application security risks.', type: 'ebook', url: 'https://owasp.org/www-project-top-ten/' },
           { id: 'net-b-8', title: 'NIST Cybersecurity Framework 2.0', description: 'Core modern framework for cyber risk governance.', type: 'ebook', url: 'https://www.nist.gov/cyberframework' },
+          { id: 'net-b-ar-1', title: 'كتاب التشفير - مقدمة Cryptography 101', description: 'كتاب مجاني عربي لمبادئ التشفير والأساسيات.', type: 'ebook', url: 'https://www.crypto101.io' },
+          { id: 'net-b-ar-2', title: 'أساسيات الأمن السيبراني - منصةCyberplus', description: 'خارطة طريق شاملة للمبتدئين في الأمن السيبراني.', type: 'ebook', url: 'https://www.cyberoplus.com/p/cybersecurity-learning-roadmap.html' },
+          { id: 'net-b-ar-3', title: 'الدليل الشامل للأمن السيبراني - CyberArab', description: 'مرجع عربي شامل يغطي جميع مستويات الأم��.', type: 'ebook', url: 'https://www.cyberoplus.com/' },
+          { id: 'net-b-ar-4', title: 'OSTEP - Three Easy Pieces', description: 'أفضل كتاب مجاني عربي لأنظمة التشغيل.', type: 'ebook', url: 'https://pages.cs.wisc.edu/~remzi/OSTEP/' },
+          { id: 'net-b-ar-5', title: 'البرمجة بلغة سي للمبتدئين - Beej Guide', description: 'مرجع شامل ومجاني لتعلم لغة سي.', type: 'ebook', url: 'https://beej.us/guide/bgc' },
+          { id: 'net-b-ar-6', title: 'أتمتة المهام بلغة بايثون', description: 'كتاب مجاني عربي لأتمتة المهام.', type: 'ebook', url: 'https://automatetheboringstuff.com' },
+          { id: 'net-b-ar-7', title: 'دليل ويب HTTP', description: 'مرجع شامل لبروتوكول HTTP.', type: 'ebook', url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP' },
+          { id: 'net-b-ar-8', title: 'ISO 27001 - إطار أمن المعلومات', description: 'المعيار الدولي لنظام إدارة أمن المعلومات.', type: 'ebook', url: 'https://www.iso.org/isoiec-27001-information-security.html' },
+          { id: 'net-b-ar-9', title: 'NIST Cybersecurity Framework', description: 'الإطار الرسمي للأمن السيبراني من المعهد الوطني الأمريكي.', type: 'ebook', url: 'https://www.nist.gov/cyberframework' },
+          { id: 'net-b-ar-10', title: 'دليل CIS Controls', description: 'أفضل ضوابط الأمن السيبراني العملية.', type: 'ebook', url: 'https://www.cisecurity.org/controls' },
         ],
-        files: [
+files: [
           { id: 'net-f-1', title: 'NIST SP 800-61r2 Incident Response (PDF)', description: 'Official incident response lifecycle guide.', type: 'pdf', url: 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf' },
           { id: 'net-f-2', title: 'NIST SP 800-53 Rev.5 (PDF)', description: 'Security and privacy controls catalog.', type: 'pdf', url: 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf' },
           { id: 'net-f-3', title: 'NIST SP 800-40 Rev.4 (PDF)', description: 'Enterprise patch and vulnerability management.', type: 'pdf', url: 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-40r4.pdf' },
           { id: 'net-f-4', title: 'CISA Cybersecurity Best Practices', description: 'Practical guidance for defense and resilience.', type: 'pdf', url: 'https://www.cisa.gov/topics/cybersecurity-best-practices' },
           { id: 'net-f-5', title: 'ENISA Threat Landscape Report (PDF)', description: 'European annual cybersecurity threat report.', type: 'pdf', url: 'https://www.enisa.europa.eu/publications/enisa-threat-landscape-2023' },
           { id: 'net-f-6', title: 'OWASP Testing Checklist (PDF)', description: 'Checklist used in practical security assessments.', type: 'pdf', url: 'https://owasp.org/www-project-web-security-testing-guide/assets/archive/OWASP_Testing_Guide_v4.pdf' },
+          { id: 'net-f-ar-1', title: 'الخوارزميات وهياكل البيانات', description: 'تصور مرئي تفاعلي للخوارزميات.', type: 'pdf', url: 'https://visualgo.net' },
+          { id: 'net-f-ar-2', title: 'مرجع هياكل البيانات - GeeksforGeeks', description: 'مرجع شامل مع أمثلة وكود.', type: 'pdf', url: 'https://www.geeksforgeeks.org/data-structures' },
+          { id: 'net-f-ar-3', title: 'أساسيات نظام التشغيل - Linux Command Line', description: 'كتاب مجاني شامل لأوامر Linux.', type: 'pdf', url: 'https://linuxcommand.org/tlcl.php' },
+          { id: 'net-f-ar-4', title: 'SQL Injection Prevention - OWASP', description: 'المرجع الرسمي للحماية من SQLi.', type: 'pdf', url: 'https://owasp.org/www-community/attacks/SQL_Injection' },
+          { id: 'net-f-ar-5', title: 'دليل UML الشامل', description: 'مرجع شامل لجميع أنواع مخططات UML.', type: 'pdf', url: 'https://www.uml-diagrams.org' },
+          { id: 'net-f-ar-6', title: 'أفضل ممارسات أمن Docker', description: 'دليل أمن Docker من CSA.', type: 'pdf', url: 'https://cloudsecurityalliance.org/research/guidance' },
         ],
-        videos: [
+videos: [
           { id: 'net-v-1', title: 'David Bombal', description: 'Top networking and cybersecurity practical content.', type: 'video', url: 'https://www.youtube.com/@davidbombal' },
           { id: 'net-v-2', title: 'NetworkChuck', description: 'Hands-on labs in networking and ethical hacking.', type: 'video', url: 'https://www.youtube.com/@NetworkChuck' },
           { id: 'net-v-3', title: 'John Hammond', description: 'Cybersecurity walkthroughs and CTF learning.', type: 'video', url: 'https://www.youtube.com/@_JohnHammond' },
@@ -131,6 +159,12 @@ const defaultContent = {
           { id: 'net-v-6', title: 'LiveOverflow', description: 'Advanced exploit and security research explanations.', type: 'video', url: 'https://www.youtube.com/@LiveOverflow' },
           { id: 'net-v-7', title: 'HackerSploit', description: 'Offensive security and tooling labs.', type: 'video', url: 'https://www.youtube.com/@HackerSploit' },
           { id: 'net-v-8', title: 'Black Hills Information Security', description: 'Blue team and SOC defensive operations talks.', type: 'video', url: 'https://www.youtube.com/@BlackHillsInformationSecurity' },
+          { id: 'net-v-ar-1', title: 'أكاديمية حسوب - البرمجة', description: 'قناة أكاديمية حسوب التعليمية.', type: 'video', url: 'https://www.youtube.com/@HsoubAcademy' },
+          { id: 'net-v-ar-2', title: 'مدرسة البرمجة - Elzero Web School', description: 'شروحات برمجية عربية شاملة.', type: 'video', url: 'https://www.youtube.com/@ElzeroWebSchool' },
+          { id: 'net-v-ar-3', title: 'نصائح البرمجة - Programming Advices', description: 'خرائط طريق برمجية عربية.', type: 'video', url: 'https://www.youtube.com/@ProgrammingAdvices' },
+          { id: 'net-v-ar-4', title: 'CyberArab - الأمن السيبراني', description: 'قناة متخصصة في الأمن السيبراني.', type: 'video', url: 'https://www.youtube.com/@CyberArab' },
+          { id: 'net-v-ar-5', title: 'ALI HACKER - دروس أمنية', description: 'دروس عربية في اختبار الاختراق.', type: 'video', url: 'https://www.youtube.com/@ALIHACKER' },
+          { id: 'net-v-ar-6', title: 'Kali Academy - الأمن السيبراني', description: 'منصة تعليمية مجانية للأمن السيبراني.', type: 'video', url: 'https://www.youtube.com/@KaliAcademy' },
         ],
       },
     },
@@ -499,11 +533,51 @@ export function SiteProvider({ children }) {
     });
   };
 
-  const addUsefulResource = (resource) => {
+const addUsefulResource = (resource) => {
     saveContent({ ...content, usefulResources: [resource, ...content.usefulResources] });
   };
 
-  const value = { language, setLanguage, t: ui[language], content, updateProfile, addDomainResource, addUsefulResource };
+  const updateDomainResource = (domainId, category, resourceId, updates) => {
+    saveContent({
+      ...content,
+      domains: content.domains.map((d) => d.id !== domainId ? d : {
+        ...d,
+        resources: {
+          ...d.resources,
+          [category]: d.resources[category].map((r) => r.id !== resourceId ? r : { ...r, ...updates }),
+        },
+      }),
+    });
+  };
+
+  const deleteDomainResource = (domainId, category, resourceId) => {
+    saveContent({
+      ...content,
+      domains: content.domains.map((d) => d.id !== domainId ? d : {
+        ...d,
+        resources: {
+          ...d.resources,
+          [category]: d.resources[category].filter((r) => r.id !== resourceId),
+        },
+      }),
+    });
+  };
+
+  const updateUsefulResource = (resourceId, updates) => {
+    saveContent({
+      ...content,
+      usefulResources: content.usefulResources.map((r) => r.id !== resourceId ? r : { ...r, ...updates }),
+    });
+  };
+
+  const deleteUsefulResource = (resourceId) => {
+    saveContent({
+      ...content,
+      usefulResources: content.usefulResources.filter((r) => r.id !== resourceId),
+    });
+  };
+
+  const value = { language, setLanguage, t: ui[language], content, updateProfile, addDomainResource, addUsefulResource, updateDomainResource, deleteDomainResource, updateUsefulResource, deleteUsefulResource };
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
 }
 

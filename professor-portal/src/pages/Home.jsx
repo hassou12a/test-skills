@@ -36,16 +36,16 @@ function HeroSection() {
           <a href="#contact" className="btn-secondary">{t.contact}</a>
         </div>
       </div>
-      <div className="hero-avatar-container">
+      <div className="hero-avatar-container" style={{ pointerEvents: 'none' }}>
         <div className="avatar-ring"></div>
-        <img src="/avatar.png" alt="Profile" className="hero-avatar" />
+        <img src="/avatar.png" alt="Profile" className="hero-avatar" style={{ pointerEvents: 'auto' }} />
       </div>
     </section>
   );
 }
 
 function DomainsSection() {
-  const navigate = useNavigate();  const { content, t, language } = useSite();
+  const navigate = useNavigate(); const { content, t, language } = useSite();
   const icons = [Monitor, Shield, Wrench];
 
   return (

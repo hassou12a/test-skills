@@ -5,6 +5,7 @@ import DomainPage from './pages/DomainPage';
 import Footer from './components/Footer';
 import AdminPage from './pages/AdminPage';
 import { SiteProvider } from './context/SiteContext';
+import BackgroundSpline from './components/BackgroundSpline';
 import './index.css';
 
 export default function App() {
@@ -13,6 +14,8 @@ export default function App() {
       <BrowserRouter>
         <div className="gradient-bg" />
         <div className="grid-overlay" />
+        <BackgroundSpline />
+
         <img className="side-flag side-flag-left" src="/algeria-flag.svg" alt="" aria-hidden="true" />
         <img className="side-flag side-flag-right" src="/algeria-flag.svg" alt="" aria-hidden="true" />
         <Navbar />
